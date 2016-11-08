@@ -1,0 +1,1 @@
+var grandPianoControllers = angular.module('grandPianoControllers', []);
