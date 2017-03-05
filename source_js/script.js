@@ -12,6 +12,7 @@ var width = window.innerWidth
 var BALL_LIFE = 10000;
 var gameActive = true;
 var instantFeedback = true;
+var background = new background();
 
 var physicsEngine = Physics(function (world) {
 
@@ -136,8 +137,9 @@ var physicsEngine = Physics(function (world) {
     function S(n) {
         return n * window.innerWidth / 600;
     }
+    //var background = new background();
 
-    var input = new InputHandler(Physics, Pizzicato, world, regularPolygon, width, height, piano, gameModel);
+    var input = new InputHandler(world, regularPolygon, width, height, piano, gameModel);
     // some fun colors
     var colors = {
         blue: '0x1d6b98',

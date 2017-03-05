@@ -6,7 +6,7 @@
 
 /* global PitchClassMapping */
 
-function InputHandler(Physics, Pizzicato, world, regularPolygon, width, height, piano, gameModel) {
+function InputHandler(world, regularPolygon, width, height, piano, gameModel) {
 
     var baseOctave = 60;
     var heldNotes = [];
@@ -56,16 +56,19 @@ function InputHandler(Physics, Pizzicato, world, regularPolygon, width, height, 
                 piano.setKeysActive([pianoKey]);
 
                 gameModel.spawnProjectile(world, pianoKey);
+                background.noteAdded(midiNumber);
                 if (instantFeedback) {
                     synth.noteOn(midiNumber, 100);
                 }
             }
             if (keyPressed == "p") {
-                console.log(gameActive);
                 gameActive = !gameActive;
             }
             if (keyPressed == "m") {
                 instantFeedback = !instantFeedback;
+            }
+            if (keyPressed == "n") {
+                background.clearAllSounds();
             }
         };
 
